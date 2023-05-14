@@ -13,3 +13,17 @@ Let's say you're building a restaurant management system. Here's how each folder
 - Library: The library layer would be like the set of cooking utensils that are shared across the kitchen. Just like the library layer, these utensils (like pots and pans) are reused across many different dishes and help make the kitchen more efficient.
 
 - Tests: The tests folder would be like the restaurant's health inspector who checks to make sure everything is up to code. Just like the tests, the health inspector helps ensure that the restaurant is running smoothly and that there are no hidden problems that could cause issues down the line.
+
+# how is the communication between them ? 
+
+- Application: The application layer can communicate with the service layer to initiate business logic, and can also communicate with the infrastructure layer to access external systems. However, the application layer should not directly communicate with the domain or library layers.
+
+- Service: The service layer can communicate with the application layer to receive requests and return responses, and can also communicate with the domain layer to access core business logic. However, the service layer should not directly communicate with the infrastructure, library, or tests layers.
+
+- Infrastructure: The infrastructure layer can communicate with the application layer to provide access to external systems, but should not directly communicate with the service, domain, library, or tests layers.
+
+- Domain: The domain layer can communicate with the service layer to provide access to core business logic, but should not directly communicate with the application, infrastructure, library, or tests layers.
+
+- Library: The library layer can be accessed by any other layer to provide shared utility classes, but should not directly communicate with the application, service, infrastructure, domain, or tests layers.
+
+- Tests: The tests layer can interact with any of the other layers to provide automated testing, but should not directly communicate with the application, service, infrastructure, domain, or library layers during production use.
